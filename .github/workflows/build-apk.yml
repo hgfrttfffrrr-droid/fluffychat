@@ -1,3 +1,4 @@
+
 name: Build Android APK
 
 on:
@@ -36,10 +37,11 @@ jobs:
           flutter pub get
 
       - name: Build APK
-        run: flutter build apk --release
+        run: flutter build apk --debug
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: WhatsUpi-APK
-          path: build/app/outputs/flutter-apk/*.apk
+          name: FluffyChat-Android-APK
+          path: build/app/outputs/flutter-apk/app-debug.apk
+          if-no-files-found: error
